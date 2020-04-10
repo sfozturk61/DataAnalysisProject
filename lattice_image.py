@@ -24,6 +24,9 @@ class LatticeImage():
         self.N = N
         self.M = M 
 
+        # Store name.
+        self.name = name
+
         # Initialize empty numpy array of corresponding length.
         self.image = np.zeros((N, N, M, M))
 

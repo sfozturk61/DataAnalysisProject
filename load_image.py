@@ -5,7 +5,13 @@ name = "Testimage"
 N = 5
 M = 61
 
-image = LatticeImage(name, M, N)
+lattice_image = LatticeImage(
+    name=name,
+    M=M,
+    N=N
+)
 
 jpeg_path = "code/static files/test_lattice_image.png"
-image.load_from_jpeg(jpeg_path)
+lattice_image.load_from_jpeg(jpeg_path)
+
+lattice_image.structure_image()

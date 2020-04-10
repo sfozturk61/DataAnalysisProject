@@ -1,5 +1,6 @@
 import numpy as np
 from PIL import Image
+import matplotlip.pyplot as plt
 
 class LatticeImage():
     ''' Class containing all image information of a EMCCD acquired image of a atom lattice'''
@@ -22,12 +23,11 @@ class LatticeImage():
         # Initialize empty numpy array of corresponding length.
         self.image = np.zeros((N, N, M, M))
 
-
     def load_from_jpeg(self, jpeg_path):
         '''Load image data from jpeg file'''
 
-        # Load image.
-        raw_image = Image.open(jpeg_path)
+        # Load image as greyscale image.
+        raw_image = Image.open(jpeg_path).convert('L')
 
         # Check if image size matches dimension of LatticeImage.
         target_dimension = self.M * self.N 
@@ -37,10 +37,27 @@ class LatticeImage():
             raise Exception(error_msg)
 
         # Assign raw image to member variable
-        self.raw_image = raw_image
+        self.raw_image = raw_image 
 
-    def show_raw_image():
+    def structure_image(self):
+        """Load raw data into pre-strucured arra self.image"""
+
+        # Retrieve dimensions for convenience.
+        M = self.M
+        N = self.N
+
+        # Load data into (M*N) * (M8N) array
+        image_array = np.array(self.raw_image)
+
+        # Iterate over lattice sites and fill them with image data.
+        for i in range(N):
+            for j in range(N):
+                self.image[i, j] = image_array[i*M:(i+1)*M, j*M:(j+1)*M]
+
+    def show_raw_image(self):
         '''Show raw image'''
-
         self.raw_image.show()
+
+    def plot_image(self):
+        '''Plots the structure image'''
 

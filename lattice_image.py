@@ -6,11 +6,11 @@ from  itertools import product
 
 
 class LatticeImage():
-    ''' Class containing all image information of a EMCCD acquired image of a atom lattice'''
+    ''' Class containing all image information of an EMCCD acquired image of a atom lattice'''
 
     
     def __init__(self, name, N, M, image_path):
-        ''' Initialize empyt LatticeImage object
+        ''' Initialize empty LatticeImage object
 
         Parameters
         ----------
@@ -33,7 +33,7 @@ class LatticeImage():
         # Load raw image
         self._load_from_jpeg(image_path)
 
-        # Update pre-structured self.image array to contian image data
+        # Update pre-structured self.image array to contain image data
         self._structure_image()
 
     def _load_from_jpeg(self, image_path):
@@ -53,7 +53,7 @@ class LatticeImage():
         self.raw_image = raw_image 
 
     def _structure_image(self):
-        """Load raw data into pre-strucured arra self.image"""
+        """Load raw data into pre-strucured array self.image"""
 
         # Retrieve dimensions for convenience.
         M = self.M

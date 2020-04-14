@@ -4,13 +4,26 @@ import theano.tensor as tt
 
 class AnalysisModels():
 
-    ''' Class analyzing generated images with different models.'''
+    ''' Class containing different models that are used to analyze lattice images.'''
 
     def __init__(self, x, y, std, xsite, ysite):
         ''' Initialize empty object
 
         Parameters
         ----------
+        x, y : array
+            x and y positions of photon counts
+        std: float
+            standard deviation of the Gaussian that is sampled from
+        xsite: array (shape = (1,2))
+            lower and upper limits of the lattice site along x axis
+        ysite: array (shape = (1,2))
+            lower and upper limits of the lattice site along y axis
+            
+        Returns
+        -------
+        P_value = float or array
+            Probability that a lattice is filled.
 
         '''
         self.x = x
@@ -43,7 +56,8 @@ class AnalysisModels():
             log_like = tt.log((P * tt.exp(atom) + (1-P) * tt.exp(background)))
 
             pm.Potential('logp', log_like.sum())
-
+        
+        #MAP value
         map_estimate = pm.find_MAP(model=mixture_model_v0)
         P_value = map_estimate["P"]
         

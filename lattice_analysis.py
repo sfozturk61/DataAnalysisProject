@@ -38,3 +38,8 @@ class AnalyzeLatticeImages():
                 
         self.P_array = P_array
         
+    def print_occupation(self)
+        
+        np.set_printoptions(precision=1, suppress=True)
+        print(self.P_array)
+        

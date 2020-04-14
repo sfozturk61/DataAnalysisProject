@@ -41,5 +41,5 @@ class AnalyzeLatticeImages():
     def print_occupation(self):
         
         np.set_printoptions(precision=1, suppress=True)
-        print(self.P_array)
+        print(self.P_array * 100)
         

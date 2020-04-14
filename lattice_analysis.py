@@ -9,7 +9,7 @@ class AnalyzeLatticeImages():
 
     ''' Class analyzing generated images with different models.'''
 
-    def __init__(self, N, M, std, x_loc, y_loc):
+    def __init__(self, model_name, N, M, std, x_loc, y_loc):
         ''' Initialize empty object
 
         Parameters
@@ -18,6 +18,8 @@ class AnalyzeLatticeImages():
         '''
         
         # Store dimensions as member variables.
+        self.model_name = model_name
+        
         self.N = N
         self.M = M 
         self.std = std
@@ -34,7 +36,7 @@ class AnalyzeLatticeImages():
                 xsite = np.array([lims[nx], lims[nx+1]])
                 ysite = np.array([lims[-(ny+2)], lims[-(ny+1)]])
 
-                P_array[ny,nx] = AnalysisModels.mixture_model(x_new, y_new, std, xsite, ysite)
+                P_array[ny,nx] = AnalysisModels.model_name(x_new, y_new, std, xsite, ysite)
                 
         self.P_array = P_array
         

@@ -19,7 +19,7 @@ class AnalysisModels():
         self.xsite = xsite
         self.ysite = ysite
         
-    def mixture_model(x, y, std, xsite, ysite):
+    def mixture_model_v0(x, y, std, xsite, ysite):
 
         with pm.Model() as mixture_model_v0:
 

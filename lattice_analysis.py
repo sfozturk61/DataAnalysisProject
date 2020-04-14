@@ -6,7 +6,7 @@ import theano.tensor as tt
 
 class AnalyzeLatticeImages():
 
-''' Class containing all image information of an EMCCD acquired image of a atom lattice'''
+    ''' Class containing all image information of an EMCCD acquired image of a atom lattice'''
 
     def __init__(self, N, M, std, x_loc, y_loc):
         ''' Initialize empty LatticeImage object

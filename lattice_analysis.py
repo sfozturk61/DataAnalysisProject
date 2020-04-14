@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pymc3 as pm
 import theano.tensor as tt
+from analysis_models import AnalysisModels
 
 class AnalyzeLatticeImages():
 
@@ -33,7 +34,7 @@ class AnalyzeLatticeImages():
                 xsite = np.array([lims[nx], lims[nx+1]])
                 ysite = np.array([lims[-(ny+2)], lims[-(ny+1)]])
 
-                P_array[ny,nx] = mixture_model(x_new, y_new, std, xsite, ysite)
+                P_array[ny,nx] = AnalysisModels.mixture_model(x_new, y_new, std, xsite, ysite)
                 
         self.P_array = P_array
         

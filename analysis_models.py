@@ -45,6 +45,6 @@ class AnalysisModels():
             pm.Potential('logp', log_like.sum())
 
         map_estimate = pm.find_MAP(model=mixture_model_v0)
-        P_value = map_estimate["P"][0]
+        P_value = map_estimate["P"]
         
         return P_value

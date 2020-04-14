@@ -25,9 +25,9 @@ class AnalyzeLatticeImages():
         lims = np.arange(0, (N+1)*M, M) - (N*M)/2
         for ny in range(N):
             for nx in range(N):
-                x = np.where((self.x_loc > lims[nx]) & (self.x_loc <= lims[nx+1]) & (self.y_loc > lims[-(ny+2)]) & (self.y_loc <= lims[-(ny+1)]), self.x_loc, np.pi)
+                x = np.where((x_loc > lims[nx]) & (x_loc <= lims[nx+1]) & (y_loc > lims[-(ny+2)]) & (y_loc <= lims[-(ny+1)]), x_loc, np.pi)
                 x_new = x[x != np.pi]
-                y = np.where((self.x_loc > lims[nx]) & (self.x_loc <= lims[nx+1]) & (self.y_loc > lims[-(ny+2)]) & (self.y_loc <= lims[-(ny+1)]), self.y_loc, np.pi)
+                y = np.where((x_loc > lims[nx]) & (x_loc <= lims[nx+1]) & (y_loc > lims[-(ny+2)]) & (y_loc <= lims[-(ny+1)]), y_loc, np.pi)
                 y_new = y[y != np.pi]
 
                 xsite = np.array([lims[nx], lims[nx+1]])

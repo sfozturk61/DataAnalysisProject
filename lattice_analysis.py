@@ -9,7 +9,7 @@ class AnalyzeLatticeImages():
 
     ''' Class analyzing generated images with different models.'''
 
-    def __init__(self, model_name, N, M, std, x_loc, y_loc):
+    def __init__(self, N, M, std, x_loc, y_loc):
         ''' Initialize empty object
 
         Parameters
@@ -21,6 +21,8 @@ class AnalyzeLatticeImages():
         self.N = N
         self.M = M 
         self.std = std
+        self.x_loc = x_loc
+        self.y_loc = y_loc
         
         P_array = np.zeros((N,N))
         lims = np.arange(0, (N+1)*M, M) - (N*M)/2
